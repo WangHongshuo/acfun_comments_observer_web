@@ -1,0 +1,15 @@
+server:
+  port: 5000
+
+spring:
+  datasource:
+      url: jdbc:postgresql://localhost:5432/acfun_comm
+      username: postgres
+      password: 1
+      driver-class-name: org.postgresql.Driver
+
+mybatis-plus:
+    configuration:
+        map-underscore-to-camel-case: true
+        cache-enabled: false
+    mapper-locations: classpath:/mapper/**/*Mapper.xml
