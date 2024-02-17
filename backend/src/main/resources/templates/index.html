@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AcFun Comments Spider</title>
-    <link href="../js/layui/css/layui.css" rel="stylesheet">
+    <link href="/acfunob/js/layui/css/layui.css" rel="stylesheet">
     <style type="text/css">
         html {
             width: 100%;
@@ -43,8 +43,8 @@
 
 
     <!-- HTML Content -->
-    <script src="../js/layui/layui.js"></script>
-    <script src="../js/jQuery/jquery-3.7.1.min.js"></script>
+    <script src="/acfunob/js/layui/layui.js"></script>
+    <script src="/acfunob/js/jQuery/jquery-3.7.1.min.js"></script>
     <script>
 
         $("body").on("keydown", function (e) {
@@ -71,7 +71,7 @@
                 }
 
                 $.ajax({
-                    url: "/backend/comment/query",
+                    url: "/acfunob/backend/comment/query",
                     type: "POST",
                     contentType: "application/json;charset=utf-8",
                     dataType: "json",
@@ -80,11 +80,11 @@
                         'floorNumber': floorNumber
                     }),
                     success: function (data) {
-                        if (data.retCode == 0) {
-                            layer.msg(data.comment);
+                        if (data.status == 200 && data.success == true) {
+                            layer.msg(data.data.comment);
                             return;
                         }
-                        layer.msg("error code: " + data.retCode);
+                        layer.msg("error code: " + data.status + ", error message: " + data.message);
                     }
                 })
 

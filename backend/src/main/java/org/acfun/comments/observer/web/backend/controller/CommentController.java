@@ -2,17 +2,15 @@ package org.acfun.comments.observer.web.backend.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-
 import jakarta.annotation.Resource;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import jakarta.servlet.http.HttpSession;
 import org.acfun.comments.observer.web.backend.entity.Comment;
+import org.acfun.comments.observer.web.backend.entity.RestBean;
 import org.acfun.comments.observer.web.backend.service.ICommentService;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * <p>
@@ -30,19 +28,19 @@ public class CommentController {
     private ICommentService commentService;
 
     @RequestMapping("query")
-    public Map<String, Object> query(@RequestBody Comment entity) {
-
-        Map<String, Object> result = new HashMap<>();
+    public RestBean<Comment> query(@RequestBody Comment entity, HttpSession session) {
         Comment record = commentService.getOne(
                 new QueryWrapper<Comment>().eq("aid", entity.getAid()).eq("floor_number", entity.getFloorNumber()));
 
         if (record == null) {
-            result.put("retCode", -1);
-            return result;
+            return RestBean.failure(404, "评论不存在");
         }
-        result.put("retCode", 0);
-        result.put("comment", record.getComment());
-        return result;
+        return RestBean.success(record);
+    }
+
+    @RequestMapping("test")
+    public String test() {
+        return new String("test");
     }
 
 }
