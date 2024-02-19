@@ -1,6 +1,6 @@
 package org.acfun.comments.observer.web.backend.mapper;
 
-import org.acfun.comments.observer.web.backend.entity.Comment;
+import org.acfun.comments.observer.web.backend.entity.Account;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Wang Hongshuo
  * @since 2024-02-17
  */
-public interface CommentMapper extends BaseMapper<Comment> {
+public interface AccountMapper extends BaseMapper<Account> {
 
 }

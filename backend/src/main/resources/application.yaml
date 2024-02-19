@@ -5,10 +5,67 @@ server:
 
 spring:
   datasource:
-      url: jdbc:postgresql://localhost:5432/acfun_comm
-      username: postgres
-      password: 1
-      driver-class-name: org.postgresql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    dynamic:
+      primary: acfuncomm
+      strict: false
+      datasource:
+        acfuncomm:
+          url: jdbc:postgresql://localhost:5432/acfun_comm
+          username: postgres
+          password: 1
+          driver-class-name: org.postgresql.Driver
+          druid:
+            initial-size: 5
+            min-idle: 5
+            max-active: 500
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+
+        acfuncommweb:
+          url: jdbc:postgresql://localhost:5432/acfun_comm_web
+          username: postgres
+          password: 1
+          driver-class-name: org.postgresql.Driver
+          druid:
+            initial-size: 10
+            min-idle: 10
+            max-active: 500
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+
+      druid:
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: false
+        filters: stat,wall,log4j2
+
+    druid:
+      # web监控页面相关
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+      filter:
+        # 记录慢查询
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 3000
+        # 防御sql注入
+        wall:
+          config:
+            multi-statement-allow: true
+
 
 mybatis-plus:
     configuration:

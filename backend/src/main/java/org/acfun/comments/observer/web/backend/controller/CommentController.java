@@ -9,8 +9,6 @@ import org.acfun.comments.observer.web.backend.entity.Comment;
 import org.acfun.comments.observer.web.backend.entity.RestBean;
 import org.acfun.comments.observer.web.backend.service.ICommentService;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * <p>
