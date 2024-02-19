@@ -9,14 +9,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
 import jakarta.annotation.Resource;
 
-/**
- * <p>
- * 前端控制器
- * </p>
- *
- * @author Wang Hongshuo
- * @since 2024-02-17
- */
 @RestController
 @RequestMapping("/backend/account")
 public class AccountController {

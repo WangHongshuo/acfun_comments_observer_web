@@ -1,4 +1,4 @@
-package org.acfun.comments.observer.web.backend.utils;
+package org.acfun.comments.observer.web.backend.utils.generator;
 
 import java.util.Arrays;
 import java.util.Collections;

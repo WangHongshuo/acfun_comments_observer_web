@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AcFun Comments Spider</title>
+    <title>AcFun Comments Observer Web</title>
     <link href="/acfunob/js/layui/css/layui.css" rel="stylesheet">
     <style type="text/css">
         html {
@@ -20,26 +20,41 @@
             left: 50%;
             transform: translate(-50%, -50%);
             position: absolute;
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 20px 20px 20px 20px;
             background: rgba(0, 0, 0, 0.5);
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 0%;
         }
     </style>
 </head>
 
 <body>
-    <div class="box center">
-        <div class="layui-anim layui-anim-upbit">
+    <div class="center">
+        <div class="box">
+            <div class="layui-anim layui-anim-upbit">
 
-            <div class="layui-form">
-                <input id="aid" class="layui-input" type="text" maxlength="10" placeholder="Article ID">
-                <input id="floorNumber" class="layui-input" type="text" maxlength="10" placeholder="Floor Number">
+                <div class="layui-form">
+                    <input id="aid" class="layui-input" type="text" maxlength="10" placeholder="Article ID">
+                    <input id="floorNumber" class="layui-input" type="text" maxlength="10" placeholder="Floor Number">
+                </div>
+
+                <button id="btnQuery" type="button" class="layui-btn layui-btn-radius layui-bg-red">Query</button>
+
             </div>
-
-            <button id="btnQuery" type="button" class="layui-btn layui-btn-radius layui-bg-red">Query</button>
-
         </div>
     </div>
+    <div class="bottom">
+        <div>例如: 输入Article ID = 43802951, Floor Number = 6</div>
+        <div>表示查询文章<a href="https://www.acfun.cn/a/ac43802951"
+                style="text-decoration:underline;">ac43802951</a>下以盖楼模式展示评论的第6楼已被删除的评论内容。</div>
+        <div>本Demo只保存文章区中综合区部分文章下的评论，不涉及任何用户隐私。</div>
+    </div>
+
+
 
 
     <!-- HTML Content -->
@@ -48,23 +63,23 @@
     <script>
 
         $("body").on("keydown", function (e) {
-            var curKey = e.which;
+            let curKey = e.which;
             if (curKey == 13) {
                 $("#btnQuery").click();
             }
         });
 
         $(function () {
-            var layer = layui.layer
+            let layer = layui.layer
 
             $("#btnQuery").on("click", function () {
-                var aid = $.trim($("#aid").val());
+                let aid = $.trim($("#aid").val());
                 if (aid == null || aid == "") {
                     layer.msg("Null Article ID.");
                     return false;
                 }
 
-                var floorNumber = $.trim($("#floorNumber").val());
+                let floorNumber = $.trim($("#floorNumber").val());
                 if (floorNumber == null || floorNumber == "") {
                     layer.msg("Null Floor Number.")
                     return false;
@@ -80,11 +95,18 @@
                         'floorNumber': floorNumber
                     }),
                     success: function (data) {
-                        if (data.status == 200 && data.success == true) {
-                            layer.msg(data.data.comment);
+                        if (data.code == 200 && data.success == true) {
+                            let msg = new String();
+                            if (data.message != null) {
+                                msg = msg + "message: " + data.message + "<br>";
+                            }
+                            if (data.data != null) {
+                                msg = msg + "comment: " + data.data;
+                            }
+                            layer.msg(msg);
                             return;
                         }
-                        layer.msg("error code: " + data.status + ", error message: " + data.message);
+                        layer.msg("code: " + data.code + ", message: " + data.message);
                     }
                 })
 
