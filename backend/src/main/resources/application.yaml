@@ -72,3 +72,12 @@ mybatis-plus:
         map-underscore-to-camel-case: true
         cache-enabled: false
     mapper-locations: classpath:/mapper/**/*Mapper.xml
+
+pagehelper:
+  # 多数据类型不同时需要注释
+  helperDialect: postgresql
+  # 多数据库类型不同时取消注释
+  # autoRuntimeDialect: true
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
