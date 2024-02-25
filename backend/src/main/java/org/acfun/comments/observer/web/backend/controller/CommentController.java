@@ -13,6 +13,7 @@ import org.acfun.comments.observer.web.backend.entity.Comment;
 import org.acfun.comments.observer.web.backend.entity.RestBean;
 import org.acfun.comments.observer.web.backend.service.ICommentService;
 import org.acfun.comments.observer.web.backend.utils.addr.IPGetter;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -27,7 +28,7 @@ public class CommentController {
 
     private Cache<String, String> commentsCache = Caffeine.newBuilder().maximumSize(100).build();
 
-    @RequestMapping("query")
+    @PostMapping("query")
     public RestBean<String> query(@RequestBody Comment entity, HttpServletRequest request) {
         // search frequency restriction
         String requestAddr = "freq" + IPGetter.getIpAddr(request);
