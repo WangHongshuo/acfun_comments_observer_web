@@ -1,5 +1,26 @@
 <template>
-  <h1>test</h1>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
+  <div class="text-4xl">1</div>
 </template>
 
 <script lang="ts" setup>

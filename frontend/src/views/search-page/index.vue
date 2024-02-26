@@ -1,8 +1,8 @@
 <template>
-  <div class="flex w-screen h-screen items-center justify-center bg-gray-300">
-    <div class="bg-sky-300 px-5 rounded-xl">
+  <div class="flex w-full h-full items-center justify-center">
+    <div class="flex bg-white flex-col px-5 rounded-xl border-solid border-2 border-black">
       <div class="text-center text-xl py-5">AcFun Comment Observer</div>
-      <el-form ref="ruleFormRef" :model="queryParam" style="max-width: 460px" :rules="rules" status-icon>
+      <el-form ref="ruleFormRef" :model="queryParam" style="max-width: 300px" :rules="rules" status-icon>
         <el-form-item prop="aid">
           <el-input v-model="queryParam.aid" placeholder="文章AC号" />
         </el-form-item>
@@ -10,22 +10,21 @@
           <el-input v-model.number="queryParam.floorNumber" placeholder="楼层" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="onSubmit(ruleFormRef)">观察</el-button>
+          <el-button type="primary" style="width: 300px;" @click="onSubmit(ruleFormRef)">观察</el-button>
         </el-form-item>
       </el-form>
     </div>
-
-    <div class="fixed bottom-0 left-0">
-      <div>例如: 输入Article ID = 43802951, Floor Number = 6</div>
-      <div>
-        表示查询文章
-        <a href="https://www.acfun.cn/a/ac43802951" style="text-decoration:underline;">
-          ac43802951
-        </a>
-        下以盖楼模式展示评论的第6楼已被删除的评论内容。
-      </div>
-      <div>本Demo只保存文章区中综合区部分文章下的评论，不涉及任何用户隐私。</div>
+  </div>
+  <div class="fixed bottom-0 left-0">
+    <div>例如: 输入Article ID = 43802951, Floor Number = 6</div>
+    <div>
+      表示查询文章
+      <a href="https://www.acfun.cn/a/ac43802951" style="text-decoration:underline;">
+        ac43802951
+      </a>
+      下以盖楼模式展示评论的第6楼已被删除的评论内容。
     </div>
+    <div>本Demo只保存文章区中综合区部分文章下的评论，不涉及任何用户隐私。</div>
   </div>
 </template>
 
