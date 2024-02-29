@@ -1,17 +1,22 @@
 <template>
-  <div v-show="true" class="h-screen w-screen flex flex-col flex-grow">
-    <navibar />
-    <div :style="{ height: appMainHeight + 'px' }" class="w-full bg-gray-200 py-4 overflow-y-auto">
-      <router-view />
+  <div v-show="true" class="h-screen w-screen flex flex-col">
+    <navibar id="navibar" />
+    <div :style="{ height: appMainHeight + 'px' }" class="flex">
+      <sidebar id="sidebar" />
+      <div :style="{ width: appMainWidth + 'px' }" class="w-full bg-gray-200 px-2 py-2 overflow-y-auto">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import navibar from './components/navibar.vue'
+import sidebar from './components/sidebar.vue'
 import { ref, onMounted, onUpdated } from 'vue'
 
 let appMainHeight = ref(0)
+let appMainWidth = ref(0)
 
 // 窗口尺寸变化
 onMounted(() => {
@@ -35,9 +40,11 @@ const calcAppMainSize = () => {
   console.log('calcAppMainSize')
   let navibar = document.getElementById('navibar')
   let navibarHeight = navibar ? navibar.offsetHeight : 0
-  console.log(navibarHeight)
   appMainHeight.value = window.innerHeight - navibarHeight
-  console.log(appMainHeight.value)
+
+  let sidebar = document.getElementById('sidebar')
+  let sidebarWidth = sidebar ? sidebar.offsetWidth : 0
+  appMainWidth.value = window.innerWidth - sidebarWidth
 }
 
 </script>

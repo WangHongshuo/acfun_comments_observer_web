@@ -1,12 +1,11 @@
 <template>
-  <el-header class=" bg-blue-300 flex items-center justify-between">
-    <div class="logo">
-      logo
-    </div>
-    <div class="toolbar">
+  <div class="navibar bg-blue-300 h-12 flex items-center justify-between">
+    <div class="logo px-4">logo</div>
+    <div class=" text-center text-xl">正在装修中...</div>
+    <div class="toolbar px-4">
       <span>登录</span>
     </div>
-  </el-header>
+  </div>
 </template>
 
 <script lang="ts" setup>
