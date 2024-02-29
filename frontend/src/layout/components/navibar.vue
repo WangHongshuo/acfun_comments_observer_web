@@ -1,5 +1,5 @@
 <template>
-  <div class="navibar bg-blue-300 h-12 flex items-center justify-between">
+  <div class="navibar bg-blue-300 min-h-12 flex items-center justify-between">
     <div class="logo px-4">logo</div>
     <div class=" text-center text-xl">正在装修中...</div>
     <div class="toolbar px-4">

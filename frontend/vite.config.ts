@@ -4,6 +4,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import * as path from 'path'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import { vitePluginAddGitInfoToIndexHeader } from './vite-plugins'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -17,7 +18,8 @@ export default defineConfig(({ mode }) => {
       }),
       Components({
         resolvers: [ElementPlusResolver()]
-      })
+      }),
+      vitePluginAddGitInfoToIndexHeader()
     ],
 
     server: {
