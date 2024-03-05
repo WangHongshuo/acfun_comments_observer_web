@@ -2,13 +2,15 @@ import { AppState } from '@/types/store/app'
 import { localStorage } from '@/utils/storage'
 import { defineStore } from 'pinia'
 
+const APP_SIDEBAR_ISCOLLAPSE = 'app.siderbar.isCollapse'
+
 const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
     name: localStorage.get('name') || 'Small Tools',
     device: 'desktop',
     sidebar: {
-      opened: localStorage.get('sidebarStatus') ? !!+localStorage.get('sidebarStatus') : true,
+      isCollapse: localStorage.get(APP_SIDEBAR_ISCOLLAPSE) ? localStorage.get(APP_SIDEBAR_ISCOLLAPSE) : false,
       withoutAnimation: false,
     },
   }),
@@ -18,17 +20,17 @@ const useAppStore = defineStore({
       localStorage.set('name', name)
     },
     toggleSidebar() {
-      this.sidebar.opened = !this.sidebar.opened
+      this.sidebar.isCollapse = !this.sidebar.isCollapse
       this.sidebar.withoutAnimation = false
-      if (this.sidebar.opened) {
-        localStorage.set('sidebarStatus', 1)
+      if (this.sidebar.isCollapse) {
+        localStorage.set(APP_SIDEBAR_ISCOLLAPSE, true)
       } else {
-        localStorage.set('sidebarStatus', 0)
+        localStorage.set(APP_SIDEBAR_ISCOLLAPSE, false)
       }
     },
     closeSideBar(withoutAnimation: any) {
-      localStorage.set('sidebarStatus', 0)
-      this.sidebar.opened = false
+      localStorage.set(APP_SIDEBAR_ISCOLLAPSE, false)
+      this.sidebar.isCollapse = false
       this.sidebar.withoutAnimation = withoutAnimation
     },
     toggleDevice(device: string) {

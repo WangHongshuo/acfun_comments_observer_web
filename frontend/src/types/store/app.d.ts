@@ -2,7 +2,7 @@ export interface AppState {
   name: string
   device: string
   sidebar: {
-    opened: boolean
+    isCollapse: boolean
     withoutAnimation: boolean
   }
 }

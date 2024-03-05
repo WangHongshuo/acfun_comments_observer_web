@@ -1,26 +1,18 @@
 <template>
-  <el-icon :size="30" @click="toggleClick">
-    <Expand v-if="props.isFold" />
+  <el-icon :size="30">
+    <Expand v-if="props.isCollapse" />
     <Fold v-else />
   </el-icon>
 </template>
 
 <script lang="ts" setup>
 interface Props {
-  isFold?: boolean
+  isCollapse?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isFold: false
+  isCollapse: false
 })
-
-const emits = defineEmits<{
-  toggleClick: []
-}>()
-
-const toggleClick = () => {
-  emits('toggleClick')
-}
 
 </script>
 

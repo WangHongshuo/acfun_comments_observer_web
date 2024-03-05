@@ -2,15 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 const app = createApp(App)
 
+// tailwindcss
 import './styles/input.css'
 import "./styles/output.css"
 
 // pinia
 import { createPinia } from 'pinia'
-import useStore from '@/store'
 const pinia = createPinia()
 app.use(pinia)
-app.config.globalProperties.$store = useStore()
 
 // Element Plus
 import ElementPlus from 'element-plus'
@@ -21,10 +20,11 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 app.use(ElementPlus)
 
-
+// router
 import router from '@/router'
 app.use(router)
 
+// component
 import myComponent from '@/components/index'
 Object.keys(myComponent).forEach((key) => {
   app.component(key, myComponent[key])
