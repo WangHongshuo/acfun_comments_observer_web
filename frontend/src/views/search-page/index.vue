@@ -4,7 +4,7 @@
       <div class="text-center text-xl py-5">AcFun Comment Observer</div>
       <el-form ref="ruleFormRef" :model="queryParam" style="max-width: 300px" :rules="rules" status-icon>
         <el-form-item prop="aid">
-          <el-input v-model="queryParam.aid" placeholder="文章AC号" />
+          <el-input v-model.number="queryParam.aid" placeholder="文章AC号" />
         </el-form-item>
         <el-form-item prop="floorNumber">
           <el-input v-model.number="queryParam.floorNumber" placeholder="楼层" />
@@ -70,6 +70,7 @@ const onSubmit = (form: FormInstance | undefined) => {
       .catch((error: any) => {
         console.log(error)
       })
+    return true
   })
 }
 

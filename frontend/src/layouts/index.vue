@@ -1,9 +1,9 @@
 <template>
   <div v-show="true" class="h-screen w-screen flex flex-col">
-    <navibar id="navibar" />
+    <navibar id="navibar" class=" bg-cyan-500" />
     <div :style="{ height: appMainHeight + 'px' }" class="flex flex-row flex-grow">
       <sidebar id="sidebar" />
-      <div class="w-full bg-gray-200 px-2 py-2 overflow-y-auto">
+      <div class="w-full bg-slate-200 p-2 m-2 overflow-y-auto">
         <router-view />
       </div>
     </div>

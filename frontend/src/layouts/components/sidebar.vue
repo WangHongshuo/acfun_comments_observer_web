@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar bg-yellow-500 h-full px-2 py-2">
+  <div class="sidebar h-full px-2 py-2">
     <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
       @close="handleClose">
       <el-sub-menu index="1">
