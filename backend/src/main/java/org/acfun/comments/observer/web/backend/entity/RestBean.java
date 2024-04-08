@@ -6,13 +6,13 @@ import lombok.Data;
 public class RestBean<T> {
     private int code;
     private boolean success;
-    private String message;
+    private String msg;
     private T data;
 
-    private RestBean(int code, boolean success, String message, T data) {
+    private RestBean(int code, boolean success, String msg, T data) {
         this.code = code;
         this.success = success;
-        this.message = message;
+        this.msg = msg;
         this.data = data;
     }
 
@@ -24,15 +24,15 @@ public class RestBean<T> {
         return new RestBean<>(200, true, null, data);
     }
 
-    public static <T> RestBean<T> success(String message, T data) {
-        return new RestBean<>(200, true, message, data);
+    public static <T> RestBean<T> success(String msg, T data) {
+        return new RestBean<>(200, true, msg, data);
     }
 
     public static <T> RestBean<T> failure(int code) {
         return new RestBean<>(code, false, null, null);
     }
 
-    public static <T> RestBean<T> failure(int code, String message) {
-        return new RestBean<>(code, false, message, null);
+    public static <T> RestBean<T> failure(int code, String msg) {
+        return new RestBean<>(code, false, msg, null);
     }
 }

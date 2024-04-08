@@ -19,7 +19,7 @@ public class CodeGenerator {
                 generator("jdbc:postgresql://localhost:5432/acfun_comm", "acfuncomm", "postgres", "1",
                                 Arrays.asList("comment", "article"));
                 generator("jdbc:postgresql://localhost:5432/acfun_comm_web", "acfuncommweb",
-                                "postgres", "1", Arrays.asList("account"));
+                                "postgres", "1", Arrays.asList("user", "user_auths"));
         }
 
         public static void generator(String dbUrl, String dbName, String dbUserName, String dbPassword,
