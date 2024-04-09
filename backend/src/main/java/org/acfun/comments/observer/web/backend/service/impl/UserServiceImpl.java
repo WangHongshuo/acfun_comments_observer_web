@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  * 用户表，user_id表示唯一用户 服务实现类
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-04-07
+ * @author baomidou
+ * @since 2024-04-09
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {

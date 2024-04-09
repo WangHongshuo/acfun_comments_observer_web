@@ -11,8 +11,8 @@ import lombok.Setter;
  * 用户表，user_id表示唯一用户
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-04-08
+ * @author baomidou
+ * @since 2024-04-09
  */
 @Getter
 @Setter

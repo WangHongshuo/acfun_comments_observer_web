@@ -2,14 +2,13 @@ package org.acfun.comments.observer.web.backend.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * <p>
- * 用户认证表，不同登录方式关联到同一用户
+ * 权限表
  * </p>
  *
  * @author baomidou
@@ -17,34 +16,28 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("user_auths")
-public class UserAuths implements Serializable {
+public class Permission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增ID
+     * id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户ID
+     * 权限名
      */
-    private Long userId;
+    private String name;
 
     /**
-     * 身份唯一标识，如账号，邮箱，手机号等
+     * 路径
      */
-    private String identifier;
+    private String url;
 
     /**
-     * 身份唯一标识类别：0=无效，1=账号，2=邮箱
+     * 请求方式（0-get；1-post）
      */
-    private Integer identifierType;
-
-    /**
-     * 逻辑删除
-     */
-    private Boolean deleted;
+    private Integer method;
 }

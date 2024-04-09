@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * 用户认证表，不同登录方式关联到同一用户 Mapper 接口
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-04-08
+ * @author baomidou
+ * @since 2024-04-09
  */
 public interface UserAuthsMapper extends BaseMapper<UserAuths> {
 

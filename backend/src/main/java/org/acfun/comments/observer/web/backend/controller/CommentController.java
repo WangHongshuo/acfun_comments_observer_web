@@ -16,6 +16,14 @@ import org.acfun.comments.observer.web.backend.utils.addr.IPGetter;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author baomidou
+ * @since 2024-04-09
+ */
 @RestController
 @RequestMapping("/backend/comment")
 public class CommentController {

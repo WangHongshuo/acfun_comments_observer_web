@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  *  服务实现类
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-02-16
+ * @author baomidou
+ * @since 2024-04-09
  */
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements IArticleService {

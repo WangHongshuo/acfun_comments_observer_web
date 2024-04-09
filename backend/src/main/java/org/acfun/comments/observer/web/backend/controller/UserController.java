@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
  * 用户表，user_id表示唯一用户 前端控制器
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-03-25
+ * @author baomidou
+ * @since 2024-04-09
  */
 @RestController
 @RequestMapping("/backend/user")

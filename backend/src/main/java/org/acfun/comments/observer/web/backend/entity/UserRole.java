@@ -9,7 +9,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 用户认证表，不同登录方式关联到同一用户
+ * 用户角色表
  * </p>
  *
  * @author baomidou
@@ -17,13 +17,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("user_auths")
-public class UserAuths implements Serializable {
+@TableName("user_role")
+public class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增ID
+     * id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -34,17 +34,7 @@ public class UserAuths implements Serializable {
     private Long userId;
 
     /**
-     * 身份唯一标识，如账号，邮箱，手机号等
+     * 角色ID
      */
-    private String identifier;
-
-    /**
-     * 身份唯一标识类别：0=无效，1=账号，2=邮箱
-     */
-    private Integer identifierType;
-
-    /**
-     * 逻辑删除
-     */
-    private Boolean deleted;
+    private Long roleId;
 }

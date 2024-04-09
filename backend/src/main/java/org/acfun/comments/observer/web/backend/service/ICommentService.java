@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author Wang Hongshuo
- * @since 2024-02-16
+ * @author baomidou
+ * @since 2024-04-09
  */
 public interface ICommentService extends IService<Comment> {
 

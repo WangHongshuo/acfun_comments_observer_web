@@ -1,5 +1,6 @@
 package org.acfun.comments.observer.web.backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 
+ * 角色
  * </p>
  *
  * @author baomidou
@@ -15,28 +16,23 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Article implements Serializable {
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Article ID
+     * id
      */
-    @TableId("aid")
-    private Long aid;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
     /**
-     * Last Comment Floor Number
+     * 角色名
      */
-    private Integer lastFloorNumber;
+    private String name;
 
     /**
-     * Is get all comments
+     * 备注
      */
-    private Boolean isCompleted;
-
-    /**
-     * Comments Count
-     */
-    private Integer commentsCount;
+    private String remark;
 }
