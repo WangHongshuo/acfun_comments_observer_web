@@ -20,7 +20,7 @@ public class CodeGenerator {
                 Arrays.asList("comment", "article"));
         generator("jdbc:postgresql://localhost:5432/acfun_comm_web", "acfuncommweb",
                 "postgres", "1",
-                Arrays.asList("user", "user_auths", "permission", "role", "role_permissions",
+                Arrays.asList("user", "user_auths", "permission", "role", "role_permission",
                         "user_role"));
     }
 

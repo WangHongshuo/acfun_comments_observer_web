@@ -2,13 +2,14 @@ package org.acfun.comments.observer.web.backend.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * <p>
- * 角色
+ * 角色权限表
  * </p>
  *
  * @author baomidou
@@ -16,23 +17,24 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Role implements Serializable {
+@TableName("role_permission")
+public class RolePermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * id
+     * if
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 角色名
+     * 角色ID
      */
-    private String name;
+    private Long roleId;
 
     /**
-     * 备注
+     * 权限ID
      */
-    private String remark;
+    private Long permissionId;
 }

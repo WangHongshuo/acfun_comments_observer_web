@@ -1,6 +1,10 @@
 package org.acfun.comments.observer.web.backend.service;
 
+import java.util.List;
+
+import org.acfun.comments.observer.web.backend.entity.Permission;
 import org.acfun.comments.observer.web.backend.entity.User;
+
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -12,5 +16,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-04-09
  */
 public interface IUserService extends IService<User> {
+    List<Permission> getPermissionsByUsername(String username);
 
+    List<Permission> getPermissionsById(Long Id);
+
+    List<Permission> getPermissionsByUser(User user);
 }
