@@ -1,15 +1,12 @@
-package org.acfun.comments.observer.web.backend.jwt.user;
+package org.acfun.comments.observer.web.backend.domain.service;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import jakarta.annotation.Resource;
 import org.acfun.comments.observer.web.backend.entity.User;
 import org.acfun.comments.observer.web.backend.service.IUserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-
-import jakarta.annotation.Resource;
 
 public class CustomUserDetailsService implements UserDetailsService {
 

@@ -1,7 +1,8 @@
 package org.acfun.comments.observer.web.backend.service;
 
-import org.acfun.comments.observer.web.backend.entity.UserAuths;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.acfun.comments.observer.web.backend.entity.User;
+import org.acfun.comments.observer.web.backend.entity.UserAuths;
 
 /**
  * <p>
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-04-09
  */
 public interface IUserAuthsService extends IService<UserAuths> {
-
+    User getUserByIdentifier(String username);
 }

@@ -1,27 +1,19 @@
 package org.acfun.comments.observer.web.backend.service.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.acfun.comments.observer.web.backend.entity.Permission;
-import org.acfun.comments.observer.web.backend.entity.RolePermission;
-import org.acfun.comments.observer.web.backend.entity.UserRole;
-import org.acfun.comments.observer.web.backend.entity.User;
-import org.acfun.comments.observer.web.backend.mapper.UserMapper;
-import org.acfun.comments.observer.web.backend.service.IPermissionService;
-import org.acfun.comments.observer.web.backend.service.IRolePermissionService;
-import org.acfun.comments.observer.web.backend.service.IRoleService;
-import org.acfun.comments.observer.web.backend.service.IUserRoleService;
-import org.acfun.comments.observer.web.backend.service.IUserService;
-
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
 import jakarta.annotation.Resource;
-
+import org.acfun.comments.observer.web.backend.entity.Permission;
+import org.acfun.comments.observer.web.backend.entity.RolePermission;
+import org.acfun.comments.observer.web.backend.entity.User;
+import org.acfun.comments.observer.web.backend.entity.UserRole;
+import org.acfun.comments.observer.web.backend.mapper.UserMapper;
+import org.acfun.comments.observer.web.backend.service.*;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -72,7 +64,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
 
         List<Long> roleIds = new ArrayList<>();
-        userRoles.stream().forEach(userRole -> {
+        userRoles.forEach(userRole -> {
             roleIds.add(userRole.getRoleId());
         });
 
@@ -82,7 +74,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return permissions;
         }
         List<Long> permissionIds = new ArrayList<>();
-        rolePermissions.stream().forEach(rolePermission -> {
+        rolePermissions.forEach(rolePermission -> {
             permissionIds.add(rolePermission.getPermissionId());
         });
 
